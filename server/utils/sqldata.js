@@ -13,7 +13,6 @@ var arr = [
 // 对数组进行for循环，并插入到mysql中的banner表
 arr.map(val => {
     let sql = `insert into banner values (${val.id}, '${val.imgUrl}')`;
-    console.log(sql, '====sql');
     db.query(sql, (err, data) => {
         if (err) {
             throw err;

@@ -9,9 +9,7 @@ var pool = mysql.createPool({
 });
 // 对数据库进行crud操作的基础
 function query(sql, callback) {
-    console.log(pool.getConnection, '====pool');
     pool.getConnection(function (err, connection) {
-        console.log(err, '====err');
         connection.query(sql, function (err, rows) {
             callback(err, rows);
             connection.release(); // 中断链接
